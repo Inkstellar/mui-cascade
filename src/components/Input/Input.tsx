@@ -27,6 +27,7 @@ export interface InputProps {
   multiline?: boolean;
   rows?: number;
   maxRows?: number;
+  sx?: any;
 }
 
 export const Input: React.FC<InputProps> = ({

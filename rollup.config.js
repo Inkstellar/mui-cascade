@@ -27,7 +27,9 @@ export default [
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
+          'react/jsx-runtime': 'jsxRuntime',
           '@mui/material': 'MUI',
+          '@mui/material/styles': 'styles',
           '@mui/icons-material': 'MUIicons',
           '@emotion/react': 'EmotionReact',
           '@emotion/styled': 'EmotionStyled',
@@ -35,7 +37,6 @@ export default [
         },
       },
     ],
-    external: [],
     plugins: [
       peerDepsExternal(),
       resolve({
