@@ -6,3 +6,6 @@ export { Modal } from './components/Modal/Modal';
 
 // Theme
 export { createCustomTheme, themeOptions, darkThemeOptions } from './theme/theme';
+
+//navigation
+export { componentsList } from './navigation';
