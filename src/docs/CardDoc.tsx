@@ -1,9 +1,8 @@
 import React from 'react';
 import ComponentDoc from './ComponentDoc';
-import Card, { CardHeader, CardContent, CardActions } from '@/components/Card/Card';
-import Button from '@/components/Button/Button';
+import Card, { CardHeader, CardContent, CardActions } from '../components/Card/Card';
+import Button from '../components/Button/Button';
 import { Card as MuiCard } from '@mui/material';
-import { Heart, MessageCircle, Share } from 'lucide-react';
 
 const basicCardCode = `import { Card, CardHeader, CardContent } from '@shadcn-mui/components';
 
@@ -216,11 +215,9 @@ function CardWithActionsPreview() {
         </CardContent>
         <CardActions>
           <Button size="small" variant="text">
-            <Heart style={{ marginRight: 8 }} />
             Like
           </Button>
           <Button size="small" variant="text">
-            <Share style={{ marginRight: 8 }} />
             Share
           </Button>
         </CardActions>
@@ -263,6 +260,7 @@ export default function CardDoc() {
       description="Cards are surfaces that display content and actions on a single topic. They should be easy to scan for relevant and actionable information."
       component={<CardPreview />}
       code={basicCardCode}
+      cliInstall="npx mui-cascade-add card"
       examples={examples}
       props={cardProps}
     />

@@ -1,7 +1,6 @@
 import React from 'react';
 import ComponentDoc from './ComponentDoc';
-import Input from '@/components/Input/Input';
-import { Search, Mail } from 'lucide-react';
+import Input from '../components/Input/Input';
 
 const basicInputCode = `import { Input } from '@shadcn-mui/components';
 
@@ -63,24 +62,16 @@ function InputStates() {
   );
 }`;
 
-const iconsInputCode = `import { Input } from '@shadcn-mui/components';
-import { Search, Mail } from 'lucide-react';
+const iconsInputCode = `import { Input } from 'mui-cascade';
 
+// Icons can be passed as startAdornment or endAdornment props
 function InputWithIcons() {
   return (
-    <div style={{ display: 'grid', gap: '16px', maxWidth: '400px' }}>
-      <Input 
-        label="Search"
-        placeholder="Search..."
-        startAdornment={<Search />}
-      />
-      <Input 
-        label="Email"
-        placeholder="your@email.com"
-        startAdornment={<Mail />}
-        type="email"
-      />
-    </div>
+    <Input
+      label="Email"
+      placeholder="your@email.com"
+      startAdornment={<span>✉️</span>}
+    />
   );
 }`;
 
@@ -174,16 +165,14 @@ function InputStatesPreview() {
 function InputWithIconsPreview() {
   return (
     <div style={{ display: 'grid', gap: '16px', maxWidth: '400px' }}>
-      <Input 
+      <Input
         label="Search"
         placeholder="Search..."
-        startAdornment={<Search />}
         variant="outlined"
       />
-      <Input 
+      <Input
         label="Email"
         placeholder="your@email.com"
-        startAdornment={<Mail />}
         type="email"
         variant="outlined"
       />
@@ -225,6 +214,7 @@ export default function InputDoc() {
       description="Text fields let users enter and edit text. They typically appear in forms and dialogs."
       component={<InputPreview />}
       code={basicInputCode}
+      cliInstall="npx mui-cascade-add input"
       examples={examples}
       props={inputProps}
     />

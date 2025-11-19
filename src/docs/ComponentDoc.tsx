@@ -166,6 +166,7 @@ export interface ComponentDocProps {
   description: string;
   component: React.ReactNode;
   code: string;
+  cliInstall?: string;
   examples?: {
     title: string;
     description: string;
@@ -186,6 +187,7 @@ export const ComponentDoc: React.FC<ComponentDocProps> = ({
   description,
   component,
   code,
+  cliInstall,
   examples = [],
   props = [],
 }) => {
@@ -251,6 +253,21 @@ export const ComponentDoc: React.FC<ComponentDocProps> = ({
           description="Copy and paste this code to get started"
         />
       </Box>
+
+      {/* CLI Installation */}
+      {cliInstall && (
+        <Box sx={{ marginBottom: '32px' }}>
+          <Typography variant="h3" sx={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '16px' }}>
+            Installation
+          </Typography>
+          <CodeBlock
+            code={cliInstall}
+            language="bash"
+            title="CLI Installation"
+            description="Automatically add this component to your project with our CLI tool"
+          />
+        </Box>
+      )}
 
       {/* Additional Examples */}
       {examples.length > 0 && (

@@ -11,6 +11,7 @@ export interface ButtonProps extends Omit<MuiButtonProps, 'variant'> {
   loading?: boolean;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
+  to?: string;
 }
 
 const variantStyles = {

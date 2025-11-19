@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ComponentDoc from './ComponentDoc';
-import Modal from '@/components/Modal/Modal';
-import Button from '@/components/Button/Button';
+import Modal from '../components/Modal/Modal';
+import Button from '../components/Button/Button';
 
 const basicModalCode = `import { Modal, Button } from '@shadcn-mui/components';
 import { useState } from 'react';
@@ -230,6 +230,7 @@ export default function ModalDoc() {
       description="Modals are dialogs that temporarily overlay content on top of the main screen. They focus user attention and often require a response."
       component={<ModalPreview />}
       code={basicModalCode}
+      cliInstall="npx mui-cascade-add modal"
       examples={examples}
       props={modalProps}
     />

@@ -1,9 +1,8 @@
 import React from 'react';
 import ComponentDoc from './ComponentDoc';
-import { Button } from 'mui-cascade';
-import { ArrowRight, Download, Heart } from 'lucide-react';
+import { Button } from '../components/Button/Button';
 
-const basicButtonCode = `import { Button } from 'mui-cascade';
+const basicButtonCode = `import { Button } from '@shadcn-mui/components';
 
 function MyComponent() {
   return (
@@ -56,21 +55,13 @@ function ButtonSizes() {
 }`;
 
 const iconsButtonCode = `import { Button } from 'mui-cascade';
-import { ArrowRight, Download, Heart } from 'lucide-react';
 
+// Icons can be passed as React elements via leftIcon/rightIcon props
 function ButtonWithIcons() {
   return (
-    <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-      <Button leftIcon={<Heart />} variant="contained">
-        Like
-      </Button>
-      <Button rightIcon={<ArrowRight />} variant="outlined">
-        Next
-      </Button>
-      <Button leftIcon={<Download />} variant="tonal">
-        Download
-      </Button>
-    </div>
+    <Button leftIcon={<span>⭐</span>} variant="contained">
+      Favorite
+    </Button>
   );
 }`;
 
@@ -172,13 +163,13 @@ function ButtonSizesPreview() {
 function ButtonIconsPreview() {
   return (
     <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-      <Button leftIcon={<Heart />} variant="contained">
+      <Button variant="contained">
         Like
       </Button>
-      <Button rightIcon={<ArrowRight />} variant="outlined">
+      <Button variant="outlined">
         Next
       </Button>
-      <Button leftIcon={<Download />} variant="tonal">
+      <Button variant="tonal">
         Download
       </Button>
     </div>
@@ -234,6 +225,7 @@ export default function ButtonDoc() {
       description="Buttons are used to initialize an action. Button variants offer different visual styles for different situations."
       component={<ButtonPreview />}
       code={basicButtonCode}
+      cliInstall="npx mui-cascade-add button"
       examples={examples}
       props={buttonProps}
     />

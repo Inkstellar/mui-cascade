@@ -139,7 +139,7 @@ export const Input: React.FC<InputProps> = ({
       }}
       sx={{
         '& .MuiInputBase-root': {
-          borderRadius: 8,
+          borderRadius: 2,
         },
         ...sx,
       }}

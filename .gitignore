@@ -31,6 +31,9 @@ package-lock.json
 .env.test.local
 .env.production.local
 
+# NPM Configuration (contains auth tokens)
+.npmrc
+
 # Build files
 build/
 coverage/
