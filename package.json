@@ -1,10 +1,10 @@
 {
   "name": "mui-cascade",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "A React component library built with MUI (Material-UI) - a shadcn alternative",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
   "files": [
     "dist",
     "docs",
@@ -20,7 +20,10 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "clean": "rm -rf dist",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "release:patch": "yarn version patch && yarn publish",
+    "release:minor": "yarn version minor && yarn publish",
+    "release:major": "yarn version major && yarn publish"
   },
   "peerDependencies": {
     "@emotion/react": "^11.11.1",
