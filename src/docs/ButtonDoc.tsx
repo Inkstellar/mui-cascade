@@ -1,6 +1,7 @@
 import React from 'react';
 import ComponentDoc from './ComponentDoc';
 import { Button } from '../components/Button/Button';
+import { Heart, ChevronRight, Download } from 'lucide-react';
 
 const basicButtonCode = `import { Button } from '@shadcn-mui/components';
 
@@ -126,10 +127,10 @@ function ButtonPreview() {
   return (
     <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
       <Button variant="contained">
-        Primary
+        Primary Button
       </Button>
       <Button variant="outlined">
-        Secondary
+        Secondary Button
       </Button>
       <Button variant="tonal">
         Tonal
@@ -163,13 +164,13 @@ function ButtonSizesPreview() {
 function ButtonIconsPreview() {
   return (
     <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-      <Button variant="contained">
+      <Button variant="contained" leftIcon={<Heart size={20} />}>
         Like
       </Button>
-      <Button variant="outlined">
+      <Button variant="outlined" rightIcon={<ChevronRight size={20} />}>
         Next
       </Button>
-      <Button variant="tonal">
+      <Button variant="tonal" leftIcon={<Download size={20} />}>
         Download
       </Button>
     </div>
@@ -191,7 +192,7 @@ function LoadingButton() {
   );
 }
 
-export default function ButtonDoc() {
+export function ButtonDoc() {
   const examples = [
     {
       title: 'Button Variants',

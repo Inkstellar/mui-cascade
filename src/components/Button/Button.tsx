@@ -4,6 +4,7 @@ import {
   ButtonProps as MuiButtonProps,
   CircularProgress,
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 export interface ButtonProps extends Omit<MuiButtonProps, 'variant'> {
   variant?: 'contained' | 'outlined' | 'text' | 'elevated' | 'tonal';
@@ -14,50 +15,51 @@ export interface ButtonProps extends Omit<MuiButtonProps, 'variant'> {
   to?: string;
 }
 
-const variantStyles = {
+const variantStyles = (theme: any) => ({
   contained: {
-    backgroundColor: 'var(--primary)',
-    color: 'var(--primary-foreground)',
+    backgroundColor: theme.palette.primary.main,
+    color: '#ffffff',
     '&:hover': {
-      backgroundColor: 'var(--primary)',
+      backgroundColor: theme.palette.primary.main,
       opacity: 0.9,
     },
   },
+
   elevated: {
-    backgroundColor: 'var(--secondary)',
-    color: 'var(--primary)',
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.primary.main,
     border: '1px solid',
-    borderColor: 'var(--border)',
+    borderColor: theme.palette.grey[300],
     boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
     '&:hover': {
-      backgroundColor: 'var(--secondary)',
+      backgroundColor: theme.palette.secondary.main,
       boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1)',
     },
   },
   tonal: {
-    backgroundColor: 'var(--primary)15',
-    color: 'var(--primary)',
+    backgroundColor: `${theme.palette.primary.main}15`,
+    color: theme.palette.primary.main,
     '&:hover': {
-      backgroundColor: 'var(--primary)25',
+      backgroundColor: `${theme.palette.primary.main}25`,
     },
   },
   outlined: {
     backgroundColor: 'transparent',
-    color: 'var(--primary)',
-    border: '1px solid var(--border)',
+    color: theme.palette.primary.main,
+    border: `1px solid ${theme.palette.grey[300]}`,
     '&:hover': {
-      backgroundColor: 'var(--secondary)',
-      borderColor: 'var(--border)',
+      backgroundColor: theme.palette.secondary.main,
+      borderColor: theme.palette.grey[300],
     },
   },
   text: {
     backgroundColor: 'transparent',
-    color: 'var(--primary)',
+    color: theme.palette.primary.main,
     '&:hover': {
-      backgroundColor: 'var(--secondary)',
+      backgroundColor: theme.palette.secondary.main,
     },
   },
-};
+});
 
 const sizeStyles = {
   small: {
@@ -88,6 +90,7 @@ export const Button: React.FC<ButtonProps> = ({
   sx,
   ...props
 }) => {
+  const theme = useTheme();
   const isDisabled = disabled || loading;
 
   return (
@@ -95,7 +98,7 @@ export const Button: React.FC<ButtonProps> = ({
       variant="contained"
       disabled={isDisabled}
       sx={{
-        ...variantStyles[variant],
+        ...variantStyles(theme)[variant],
         ...sizeStyles[size],
         position: 'relative',
         overflow: 'hidden',

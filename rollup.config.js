@@ -39,12 +39,14 @@ export default [
       file: 'dist/index.esm.js',
       format: 'esm',
       sourcemap: true,
+      exports: 'named',
     },
     {
       file: 'dist/index.umd.js',
       format: 'umd',
       sourcemap: true,
       name: 'MuiCascade',
+      exports: 'named',
       globals: {
         react: 'React',
         'react-dom': 'ReactDOM',
@@ -57,36 +59,18 @@ export default [
         '@mui/system': 'MUIsystem',
         'react-syntax-highlighter': 'ReactSyntaxHighlighter',
         'react-syntax-highlighter/dist/esm/styles/prism': 'prism',
+        'lucide-react': 'LucideReact',
       },
     },
   ]),
-  createConfig('src/navigation.ts', {
-    file: 'dist/navigation.js',
+  createConfig('src/index.ts', {
+    file: 'dist/index.js',
     format: 'esm',
     sourcemap: true,
+    exports: 'named',
   }),
-  createConfig('src/docs/ButtonDoc.tsx', {
-    file: 'dist/ButtonDoc.js',
-    format: 'esm',
-    sourcemap: true,
-  }),
-  createConfig('src/docs/CardDoc.tsx', {
-    file: 'dist/CardDoc.js',
-    format: 'esm',
-    sourcemap: true,
-  }),
-  createConfig('src/docs/InputDoc.tsx', {
-    file: 'dist/InputDoc.js',
-    format: 'esm',
-    sourcemap: true,
-  }),
-  createConfig('src/docs/ModalDoc.tsx', {
-    file: 'dist/ModalDoc.js',
-    format: 'esm',
-    sourcemap: true,
-  }),
-  createConfig('src/docs/ComponentDoc.tsx', {
-    file: 'dist/ComponentDoc.js',
+  createConfig('src/docs/index.ts', {
+    file: 'dist/cascadeDocs.js',
     format: 'esm',
     sourcemap: true,
   }),

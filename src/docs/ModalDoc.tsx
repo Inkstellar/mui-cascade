@@ -208,7 +208,7 @@ function ModalSizesPreview() {
   );
 }
 
-export default function ModalDoc() {
+export function ModalDoc() {
   const examples = [
     {
       title: 'Modal Sizes',

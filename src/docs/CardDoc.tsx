@@ -226,7 +226,7 @@ function CardWithActionsPreview() {
   );
 }
 
-export default function CardDoc() {
+export function CardDoc() {
   const examples = [
     {
       title: 'Card Variants',

@@ -180,7 +180,7 @@ function InputWithIconsPreview() {
   );
 }
 
-export default function InputDoc() {
+export function InputDoc() {
   const examples = [
     {
       title: 'Input Variants',
