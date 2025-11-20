@@ -1,6 +1,6 @@
 {
   "name": "mui-cascade",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "A React component library built with MUI (Material-UI) - a shadcn alternative",
   "main": "src/index.ts",
   "module": "src/index.ts",
@@ -10,13 +10,7 @@
       "types": "./src/index.ts",
       "import": "./dist/index.esm.js",
       "require": "./dist/index.js"
-    },
-    "./navigation": "./dist/navigation.js",
-    "./ButtonDoc": "./dist/ButtonDoc.js",
-    "./CardDoc": "./dist/CardDoc.js",
-    "./InputDoc": "./dist/InputDoc.js",
-    "./ModalDoc": "./dist/ModalDoc.js",
-    "./ComponentDoc": "./dist/ComponentDoc.js"
+    }
   },
   "files": [
     "dist",
@@ -31,6 +25,7 @@
   },
   "scripts": {
     "build": "rollup -c",
+    "build:watch": "rollup -c -w",
     "dev": "rollup -c -w",
     "clean": "rm -rf dist",
     "prepublishOnly": "npm run build",
@@ -86,6 +81,7 @@
     "commander": "^11.1.0",
     "fs-extra": "^11.3.2",
     "inquirer": "^8.2.6",
+    "lucide-react": "^0.554.0",
     "tslib": "^2.8.1"
   }
 }
