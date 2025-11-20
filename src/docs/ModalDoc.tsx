@@ -168,7 +168,7 @@ function ModalPreview() {
       <Modal
         open={open}
         onClose={() => setOpen(false)}
-        title="Welcome to Shadcn MUI"
+        title="Welcome to Cascade UI"
         description="A modern component library"
       >
         <p>This is a demonstration of the Modal component. You can put any content here, including forms, images, or other components.</p>
@@ -222,6 +222,12 @@ export function ModalDoc() {
       component: <div style={{ height: '60px' }}>Preview not available</div>,
       code: withActionsModalCode,
     },
+    {
+      title: 'Full Screen Modal',
+      description: 'Modals can be displayed fullscreen',
+      figmaUrl: 'https://embed.figma.com/proto/1v1TNfVcx44pyebvNKLKaK/SRHIN-School-Management?page-id=0%3A1&node-id=8-4295&viewport=132%2C-648%2C0.23&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=8%3A4295&embed-host=share'
+
+    }
   ];
 
   return (

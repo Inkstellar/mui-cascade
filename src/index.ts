@@ -14,4 +14,5 @@ export { createCustomTheme, themeOptions, darkThemeOptions } from './theme/theme
 export * from './cascade-types';
 
 // Doc components
-export { ButtonDoc, CardDoc, InputDoc, ModalDoc } from './docs';
+export { ButtonDoc, CardDoc, InputDoc, ModalDoc, componentDocsRegistry } from './docs';
+export type { ComponentDocEntry } from './docs';

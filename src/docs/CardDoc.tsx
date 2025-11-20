@@ -78,11 +78,11 @@ function FullCardExample() {
     <Card variant="elevated">
       <CardHeader 
         title="Getting Started"
-        subtitle="Learn how to use Shadcn MUI"
+        subtitle="Learn how to use Cascade UI"
         avatar={<div style={{ width: 40, height: 40, backgroundColor: '#3b82f6', borderRadius: '50%' }} />}
       />
       <CardContent>
-        This comprehensive guide will help you get started with Shadcn MUI 
+        This comprehensive guide will help you get started with Cascade UI 
         components. We'll cover installation, basic usage, and advanced patterns.
       </CardContent>
       <CardActions>
@@ -167,7 +167,7 @@ function CardPreview() {
     <div style={{ maxWidth: '400px' }}>
       <Card variant="elevated">
         <CardContent>
-          <h3 style={{ margin: '0 0 8px 0' }}>Welcome to Shadcn MUI</h3>
+          <h3 style={{ margin: '0 0 8px 0' }}>Welcome to Cascade UI</h3>
           <p style={{ margin: 0, color: 'var(--muted-foreground)' }}>
             A collection of accessible components built with Material-UI
           </p>
@@ -206,7 +206,7 @@ function CardWithActionsPreview() {
   return (
     <div style={{ maxWidth: '400px' }}>
       <Card variant="elevated">
-        <CardHeader 
+        <CardHeader
           title="Documentation"
           subtitle="Learn more"
         />

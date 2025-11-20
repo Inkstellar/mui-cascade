@@ -175,8 +175,10 @@ export interface ComponentDocProps {
   examples?: {
     title: string;
     description: string;
-    component: React.ReactNode;
-    code: string;
+    component?: React.ReactNode;
+    code?: string;
+    figmaUrl?: string;
+    figmaPreviewImage?: string; // Optional preview image for Figma
   }[];
   props?: {
     name: string;
@@ -316,29 +318,104 @@ export const ComponentDoc: React.FC<ComponentDocProps> = ({
                     {example.description}
                   </Typography>
 
-                  <Paper
-                    elevation={0}
-                    sx={{
-                      border: '1px solid',
-                      borderColor: '#e5e7eb',
-                      borderRadius: 2,
-                      padding: '40px',
-                      marginBottom: '16px',
-                      textAlign: 'center',
-                      minHeight: '150px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    {example.component}
-                  </Paper>
+                  {/* Render Figma embed if figmaUrl is provided */}
+                  {example.figmaUrl ? (
+                    <Paper
+                      elevation={0}
+                      sx={{
+                        border: '1px solid',
+                        borderColor: '#e5e7eb',
+                        borderRadius: 2,
+                        overflow: 'hidden',
+                        marginBottom: '16px',
+                      }}
+                    >
+                      {example.figmaPreviewImage ? (
+                        // Show preview image with "Open in Figma" button
+                        <Box sx={{ position: 'relative' }}>
+                          <img
+                            src={example.figmaPreviewImage}
+                            alt={example.title}
+                            style={{
+                              width: '100%',
+                              height: 'auto',
+                              display: 'block',
+                            }}
+                          />
+                          <Box
+                            sx={{
+                              position: 'absolute',
+                              top: '50%',
+                              left: '50%',
+                              transform: 'translate(-50%, -50%)',
+                            }}
+                          >
+                            <Button
+                              variant="contained"
+                              size="large"
+                              component="a"
+                              href={example.figmaUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              sx={{
+                                backgroundColor: '#18181b',
+                                color: '#ffffff',
+                                padding: '12px 24px',
+                                fontSize: '1rem',
+                                fontWeight: 600,
+                                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                                '&:hover': {
+                                  backgroundColor: '#27272a',
+                                  boxShadow: '0 6px 16px rgba(0, 0, 0, 0.2)',
+                                },
+                              }}
+                            >
+                              Open in Figma
+                            </Button>
+                          </Box>
+                        </Box>
+                      ) : (
+                        // Show iframe embed
+                        <iframe
+                          style={{ border: 'none', width: '100%', height: '600px' }}
+                          src={example.figmaUrl}
+                          allowFullScreen
+                        />
+                      )}
+                    </Paper>
+                  ) : (
+                    <>
+                      {/* Render React component preview */}
+                      {example.component && (
+                        <Paper
+                          elevation={0}
+                          sx={{
+                            border: '1px solid',
+                            borderColor: '#e5e7eb',
+                            borderRadius: 2,
+                            padding: '40px',
+                            marginBottom: '16px',
+                            textAlign: 'center',
+                            minHeight: '150px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                          }}
+                        >
+                          {example.component}
+                        </Paper>
+                      )}
 
-                  <CodeBlock
-                    code={example.code}
-                    language="jsx"
-                    showCopy={false}
-                  />
+                      {/* Render code block if code is provided */}
+                      {example.code && (
+                        <CodeBlock
+                          code={example.code}
+                          language="jsx"
+                          showCopy={false}
+                        />
+                      )}
+                    </>
+                  )}
                 </Box>
               ))}
             </Box>
