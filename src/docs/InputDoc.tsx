@@ -2,7 +2,7 @@ import React from 'react';
 import ComponentDoc from './ComponentDoc';
 import Input from '../components/Input/Input';
 
-const basicInputCode = `import { Input } from '@shadcn-mui/components';
+const basicInputCode = `import { Input } from 'mui-cascade';
 
 function MyInput() {
   return (
@@ -14,7 +14,7 @@ function MyInput() {
   );
 }`;
 
-const variantsInputCode = `import { Input } from '@shadcn-mui/components';
+const variantsInputCode = `import { Input } from 'mui-cascade';
 
 function InputVariants() {
   return (
@@ -38,7 +38,7 @@ function InputVariants() {
   );
 }`;
 
-const statesInputCode = `import { Input } from '@shadcn-mui/components';
+const statesInputCode = `import { Input } from 'mui-cascade';
 
 function InputStates() {
   return (
@@ -129,7 +129,7 @@ const inputProps = [
 function InputPreview() {
   return (
     <div style={{ maxWidth: '400px' }}>
-      <Input 
+      <Input
         label="Username"
         placeholder="Enter your username"
       />
@@ -140,19 +140,19 @@ function InputPreview() {
 function InputStatesPreview() {
   return (
     <div style={{ display: 'grid', gap: '16px', maxWidth: '400px' }}>
-      <Input 
+      <Input
         label="Default"
         placeholder="Normal state"
         variant="outlined"
       />
-      <Input 
+      <Input
         label="Error State"
         placeholder="Error message"
         error
         helperText="Please enter a valid value"
         variant="outlined"
       />
-      <Input 
+      <Input
         label="Disabled"
         placeholder="Disabled input"
         disabled
@@ -180,7 +180,7 @@ function InputWithIconsPreview() {
   );
 }
 
-export function InputDoc() {
+export default function InputDoc() {
   const examples = [
     {
       title: 'Input Variants',

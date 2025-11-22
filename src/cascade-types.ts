@@ -7,3 +7,4 @@ export type { ButtonProps } from './components/Button/Button';
 export type { CardProps } from './components/Card/Card';
 export type { InputProps } from './components/Input/Input';
 export type { ModalProps } from './components/Modal/Modal';
+export type { PaymentFormProps } from './components/PaymentForm/PaymentForm';

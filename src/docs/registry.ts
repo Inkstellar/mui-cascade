@@ -1,33 +1,32 @@
-import { ButtonDoc } from './ButtonDoc';
-import { CardDoc } from './CardDoc';
-import { InputDoc } from './InputDoc';
-import { ModalDoc } from './ModalDoc';
+import ButtonDoc from './ButtonDoc';
+import CardDoc from './CardDoc';
+import InputDoc from './InputDoc';
+import ModalDoc from './ModalDoc';
+import PaymentFormDoc from './PaymentFormDoc';
+import { componentMetadata, type ComponentDocEntry } from './registryMetadata';
 
-export interface ComponentDocEntry {
-    component: React.ComponentType;
-    path: string;
-    name: string;
-}
-
+// Merge metadata with actual component imports
 export const componentDocsRegistry: Record<string, ComponentDocEntry> = {
     button: {
+        ...componentMetadata.button,
         component: ButtonDoc,
-        path: '/components/button',
-        name: 'Button',
     },
     card: {
+        ...componentMetadata.card,
         component: CardDoc,
-        path: '/components/card',
-        name: 'Card',
     },
     input: {
+        ...componentMetadata.input,
         component: InputDoc,
-        path: '/components/input',
-        name: 'Input',
     },
     modal: {
+        ...componentMetadata.modal,
         component: ModalDoc,
-        path: '/components/modal',
-        name: 'Modal',
+    },
+    paymentForm: {
+        ...componentMetadata.paymentForm,
+        component: PaymentFormDoc,
     },
 };
+
+export type { ComponentDocEntry };

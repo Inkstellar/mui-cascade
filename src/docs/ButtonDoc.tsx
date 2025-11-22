@@ -3,7 +3,7 @@ import ComponentDoc from './ComponentDoc';
 import { Button } from '../components/Button/Button';
 import { Heart, ChevronRight, Download } from 'lucide-react';
 
-const basicButtonCode = `import { Button } from '@shadcn-mui/components';
+const basicButtonCode = `import { Button } from 'mui-cascade';
 
 function MyComponent() {
   return (
@@ -192,7 +192,7 @@ function LoadingButton() {
   );
 }
 
-export function ButtonDoc() {
+export default function ButtonDoc() {
   const examples = [
     {
       title: 'Button Variants',

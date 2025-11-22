@@ -4,7 +4,8 @@ import Card, { CardHeader, CardContent, CardActions } from '../components/Card/C
 import Button from '../components/Button/Button';
 import { Card as MuiCard } from '@mui/material';
 
-const basicCardCode = `import { Card, CardHeader, CardContent } from '@shadcn-mui/components';
+const basicCardCode = `
+import { Card, CardHeader, CardContent } from 'mui-cascade';  
 
 function MyCard() {
   return (
@@ -21,7 +22,8 @@ function MyCard() {
   );
 }`;
 
-const variantsCardCode = `import { Card } from '@shadcn-mui/components';
+const variantsCardCode = `
+import { Card } from 'mui-cascade';
 
 function CardVariants() {
   return (
@@ -50,7 +52,7 @@ function CardVariants() {
   );
 }`;
 
-const interactiveCardCode = `import { Card } from '@shadcn-mui/components';
+const interactiveCardCode = `import { Card } from 'mui-cascade';
 import { useState } from 'react';
 
 function InteractiveCard() {
@@ -69,8 +71,9 @@ function InteractiveCard() {
   );
 }`;
 
-const fullCardCode = `import { Card, CardHeader, CardContent, CardActions } from '@shadcn-mui/components';
-import { Button } from '@shadcn-mui/components';
+const fullCardCode = `
+import { Card, CardHeader, CardContent, CardActions } from 'mui-cascade';
+import { Button } from 'mui-cascade';
 import { Heart, MessageCircle } from 'lucide-react';
 
 function FullCardExample() {
@@ -99,7 +102,8 @@ function FullCardExample() {
   );
 }`;
 
-const paddingCardCode = `import { Card } from '@shadcn-mui/components';
+const paddingCardCode = `
+import { Card } from 'mui-cascade';
 
 function PaddingCardExample() {
   return (
@@ -226,7 +230,7 @@ function CardWithActionsPreview() {
   );
 }
 
-export function CardDoc() {
+export default function CardDoc() {
   const examples = [
     {
       title: 'Card Variants',

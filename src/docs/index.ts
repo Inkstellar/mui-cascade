@@ -1,8 +1,9 @@
 export { ComponentDoc } from './ComponentDoc';
-export { ButtonDoc } from './ButtonDoc';
-export { InputDoc } from './InputDoc';
-export { ModalDoc } from './ModalDoc';
-export { CardDoc } from './CardDoc';
+export { default as ButtonDoc } from './ButtonDoc';
+export { default as InputDoc } from './InputDoc';
+export { default as ModalDoc } from './ModalDoc';
+export { default as CardDoc } from './CardDoc';
+export { default as PaymentFormDoc } from './PaymentFormDoc';
 
 // Export component registry for dynamic routing
 export { componentDocsRegistry } from './registry';

@@ -3,6 +3,7 @@ import {
   TextField,
   InputAdornment,
   IconButton,
+  useTheme,
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
@@ -37,7 +38,7 @@ export const Input: React.FC<InputProps> = ({
   error = false,
   disabled = false,
   required = false,
-  size = 'medium',
+  size = 'small',
   fullWidth = false,
   variant = 'outlined',
   type = 'text',
@@ -54,6 +55,7 @@ export const Input: React.FC<InputProps> = ({
   sx,
   ...props
 }) => {
+  const theme = useTheme();
   const [showPassword, setShowPassword] = React.useState(false);
   const isPassword = type === 'password';
   const inputType = isPassword ? (showPassword ? 'text' : 'password') : type;
@@ -70,7 +72,7 @@ export const Input: React.FC<InputProps> = ({
       error={error}
       disabled={disabled}
       required={required}
-      size={size}
+      size={size || 'small'}
       fullWidth={fullWidth}
       variant={variant}
       type={inputType}
@@ -106,40 +108,41 @@ export const Input: React.FC<InputProps> = ({
         ) : null,
         sx: {
           '& .MuiOutlinedInput-notchedOutline': {
-            borderColor: error ? 'var(--destructive)' : 'var(--border)',
+            borderColor: error ? theme.palette.error.main : theme.palette.divider,
           },
           '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: error ? 'var(--destructive)' : 'var(--primary)',
+            borderColor: error ? theme.palette.error.main : theme.palette.primary.main,
           },
           '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: error ? 'var(--destructive)' : 'var(--primary)',
+            borderColor: error ? theme.palette.error.main : theme.palette.primary.main,
             borderWidth: 2,
           },
           '&.Mui-error .MuiOutlinedInput-notchedOutline': {
-            borderColor: 'var(--destructive)',
+            borderColor: theme.palette.error.main,
           },
           ...sx,
         },
       }}
       InputLabelProps={{
         sx: {
-          color: error ? 'var(--destructive)' : 'var(--muted-foreground)',
+          color: error ? theme.palette.error.main : theme.palette.text.secondary,
           '&.Mui-focused': {
-            color: error ? 'var(--destructive)' : 'var(--primary)',
+            color: error ? theme.palette.error.main : theme.palette.primary.main,
           },
         },
       }}
       FormHelperTextProps={{
         sx: {
-          color: error ? 'var(--destructive)' : 'var(--muted-foreground)',
+          mx: 0,
+          color: error ? theme.palette.error.main : theme.palette.text.secondary,
           '&.Mui-error': {
-            color: 'var(--destructive)',
+            color: theme.palette.error.main,
           },
         },
       }}
       sx={{
         '& .MuiInputBase-root': {
-          borderRadius: 2,
+          borderRadius: 1,
         },
         ...sx,
       }}

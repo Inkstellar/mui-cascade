@@ -3,7 +3,7 @@ import ComponentDoc from './ComponentDoc';
 import Modal from '../components/Modal/Modal';
 import Button from '../components/Button/Button';
 
-const basicModalCode = `import { Modal, Button } from '@shadcn-mui/components';
+const basicModalCode = `import { Modal, Button } from 'mui-cascade';
 import { useState } from 'react';
 
 function MyModal() {
@@ -26,7 +26,7 @@ function MyModal() {
   );
 }`;
 
-const sizesModalCode = `import { Modal, Button } from '@shadcn-mui/components';
+const sizesModalCode = `import { Modal, Button } from 'mui-cascade';
 import { useState } from 'react';
 
 function ModalSizes() {
@@ -67,7 +67,7 @@ function ModalSizes() {
   );
 }`;
 
-const withActionsModalCode = `import { Modal, Button } from '@shadcn-mui/components';
+const withActionsModalCode = `import { Modal, Button } from 'mui-cascade';
 import { useState } from 'react';
 
 function ModalWithActions() {
@@ -208,7 +208,7 @@ function ModalSizesPreview() {
   );
 }
 
-export function ModalDoc() {
+export default function ModalDoc() {
   const examples = [
     {
       title: 'Modal Sizes',
