@@ -14,6 +14,8 @@ export interface InputProps {
   error?: boolean;
   disabled?: boolean;
   required?: boolean;
+  starticon?: React.ReactNode;
+  endicon?: React.ReactNode;
   size?: 'small' | 'medium';
   fullWidth?: boolean;
   variant?: 'outlined' | 'filled' | 'standard';
@@ -29,6 +31,8 @@ export interface InputProps {
   rows?: number;
   maxRows?: number;
   sx?: any;
+  inputProps?: any;
+  onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 export const Input: React.FC<InputProps> = ({

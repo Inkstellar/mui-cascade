@@ -16,7 +16,8 @@ import {
     Paper,
 } from '@mui/material';
 import { CreditCard, Smartphone, Building2 } from 'lucide-react';
-import Button from '../Button/Button';
+import Button from '../../ui/Button/Button';
+import { useTheme } from '@mui/material';
 
 export interface PaymentFormProps {
     onSubmit?: (paymentData: PaymentData) => void | Promise<void>;
@@ -113,6 +114,8 @@ export function PaymentForm({
         setActiveTab(newValue);
         setErrors({});
     };
+
+    const theme = useTheme();
 
     // Card number formatting and validation
     const formatCardNumber = (value: string) => {
@@ -281,7 +284,7 @@ export function PaymentForm({
     };
 
     return (
-        <Paper sx={{ width: '100%', maxWidth: 600 }}>
+        <Paper sx={{ width: '100%', maxWidth: 600, boxShadow: 'none', border: '1px solid', borderColor: 'divider' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Tabs value={activeTab} onChange={handleTabChange} aria-label="payment methods">
                     <Tab

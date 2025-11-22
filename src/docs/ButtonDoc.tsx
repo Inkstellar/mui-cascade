@@ -1,6 +1,6 @@
 import React from 'react';
 import ComponentDoc from './ComponentDoc';
-import { Button } from '../components/Button/Button';
+import { Button } from '../components/ui/Button/Button';
 import { Heart, ChevronRight, Download } from 'lucide-react';
 
 const basicButtonCode = `import { Button } from 'mui-cascade';

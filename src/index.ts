@@ -1,7 +1,7 @@
 // Core Components
-export { Button as default } from './components/Button/Button';
-export { Button, CardComp, CardHeader, CardContent, CardActions, Input, Modal, PaymentForm } from './components';
-export type { PaymentFormProps, PaymentData } from './components/PaymentForm/PaymentForm';
+export { Button as default } from './components/ui/Button/Button';
+export { Button, CardComp, CardHeader, CardContent, CardActions, Input, Modal, PaymentForm, PricingCard } from './components';
+export type { PaymentFormProps, PaymentData } from './components/forms/PaymentForm/PaymentForm';
 
 //side navigation
 export { componentsList } from './navigation';

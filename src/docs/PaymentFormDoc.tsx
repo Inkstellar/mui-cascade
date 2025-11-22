@@ -1,6 +1,6 @@
 import React from 'react';
 import ComponentDoc from './ComponentDoc';
-import { PaymentForm, type PaymentData } from '../components/PaymentForm/PaymentForm';
+import { PaymentForm, type PaymentData } from '../components/forms/PaymentForm/PaymentForm';
 import { Box, Typography, Alert } from '@mui/material';
 
 const basicPaymentFormCode = `import { PaymentForm } from 'mui-cascade';

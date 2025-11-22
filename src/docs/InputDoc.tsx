@@ -1,6 +1,6 @@
 import React from 'react';
 import ComponentDoc from './ComponentDoc';
-import Input from '../components/Input/Input';
+import Input from '../components/ui/Input/Input';
 
 const basicInputCode = `import { Input } from 'mui-cascade';
 

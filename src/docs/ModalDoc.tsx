@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ComponentDoc from './ComponentDoc';
-import Modal from '../components/Modal/Modal';
-import Button from '../components/Button/Button';
+import Modal from '../components/ui/Modal/Modal';
+import Button from '../components/ui/Button/Button';
 
 const basicModalCode = `import { Modal, Button } from 'mui-cascade';
 import { useState } from 'react';

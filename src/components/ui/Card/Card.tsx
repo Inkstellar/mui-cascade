@@ -5,6 +5,7 @@ import {
   CardActions as MuiCardActions,
   CardHeader as MuiCardHeader,
   CardProps as MuiCardProps,
+  useTheme,
 } from '@mui/material';
 
 export interface CardProps extends Omit<MuiCardProps, 'variant'> {
@@ -12,23 +13,6 @@ export interface CardProps extends Omit<MuiCardProps, 'variant'> {
   padding?: 'none' | 'small' | 'medium' | 'large';
   interactive?: boolean;
 }
-
-const variantStyles = {
-  elevated: {
-    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
-    border: 'none',
-  },
-  outlined: {
-    boxShadow: 'none',
-    border: '1px solid',
-    borderColor: 'var(--border)',
-  },
-  filled: {
-    boxShadow: 'none',
-    border: 'none',
-    backgroundColor: 'var(--secondary)',
-  },
-};
 
 const paddingStyles = {
   none: {
@@ -53,6 +37,25 @@ export const Card: React.FC<CardProps> = ({
   children,
   ...props
 }) => {
+  const theme = useTheme();
+
+  const variantStyles = {
+    elevated: {
+      boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+      border: 'none',
+    },
+    outlined: {
+      boxShadow: 'none',
+      border: '1px solid',
+      borderColor: theme.palette.divider,
+    },
+    filled: {
+      boxShadow: 'none',
+      border: 'none',
+      backgroundColor: theme.palette.action.hover,
+    },
+  };
+
   return (
     <MuiCard
       sx={{
@@ -62,9 +65,9 @@ export const Card: React.FC<CardProps> = ({
         cursor: interactive ? 'pointer' : 'default',
         '&:hover': interactive
           ? {
-              transform: 'translateY(-2px)',
-              boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
-            }
+            transform: 'translateY(-2px)',
+            boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+          }
           : {},
         ...sx,
       }}
@@ -75,26 +78,30 @@ export const Card: React.FC<CardProps> = ({
   );
 };
 
-export const CardHeader: React.FC<any> = ({ title, subtitle, action, avatar, ...props }) => (
-  <MuiCardHeader
-    title={title}
-    subheader={subtitle}
-    action={action}
-    avatar={avatar}
-    sx={{
-      '& .MuiCardHeader-title': {
-        fontSize: '1.25rem',
-        fontWeight: 600,
-      },
-      '& .MuiCardHeader-subheader': {
-        fontSize: '0.875rem',
-        color: 'var(--muted-foreground)',
-      },
-      ...props.sx,
-    }}
-    {...props}
-  />
-);
+export const CardHeader: React.FC<any> = ({ title, subtitle, action, avatar, ...props }) => {
+  const theme = useTheme();
+
+  return (
+    <MuiCardHeader
+      title={title}
+      subheader={subtitle}
+      action={action}
+      avatar={avatar}
+      sx={{
+        '& .MuiCardHeader-title': {
+          fontSize: '1.25rem',
+          fontWeight: 600,
+        },
+        '& .MuiCardHeader-subheader': {
+          fontSize: '0.875rem',
+          color: theme.palette.text.secondary,
+        },
+        ...props.sx,
+      }}
+      {...props}
+    />
+  );
+};
 
 export const CardContent: React.FC<any> = ({ children, sx, ...props }) => (
   <MuiCardContent

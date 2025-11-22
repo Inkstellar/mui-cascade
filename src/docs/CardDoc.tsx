@@ -1,7 +1,7 @@
 import React from 'react';
 import ComponentDoc from './ComponentDoc';
-import Card, { CardHeader, CardContent, CardActions } from '../components/Card/Card';
-import Button from '../components/Button/Button';
+import Card, { CardHeader, CardContent, CardActions } from '../components/ui/Card/Card';
+import Button from '../components/ui/Button/Button';
 import { Card as MuiCard } from '@mui/material';
 
 const basicCardCode = `
