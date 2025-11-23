@@ -128,6 +128,7 @@ export const Input: React.FC<InputProps> = ({
         },
       }}
       InputLabelProps={{
+        shrink: placeholder ? true : undefined,
         sx: {
           color: error ? theme.palette.error.main : theme.palette.text.secondary,
           '&.Mui-focused': {
