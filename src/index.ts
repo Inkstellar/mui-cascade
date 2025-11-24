@@ -9,6 +9,9 @@ export { componentsList } from './navigation';
 // Theme
 export { createCustomTheme, themeOptions, darkThemeOptions } from './theme/theme';
 
+// Hooks
+export { useFullscreen, FullscreenProvider } from './hooks/useFullscreen';
+
 //types
 export * from './cascade-types';
 

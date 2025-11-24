@@ -15,8 +15,9 @@ import {
 import { ContentCopy } from '@mui/icons-material';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneLight, oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { Check, Terminal, Package, TestTube2, StopCircle } from 'lucide-react';
+import { Check, Terminal, Package, TestTube2, StopCircle, Scaling } from 'lucide-react';
 import { componentMetadata } from './registryMetadata';
+import { useFullscreen } from '../hooks/useFullscreen';
 
 export interface CodeBlockProps {
   code: string;
@@ -40,6 +41,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   maxHeight = 'auto',
 }) => {
   const [copied, setCopied] = useState(false);
+  const { isFullscreen, toggleFullscreen, fullscreenStyles } = useFullscreen("codeBlock" + title);
 
   const handleCopy = async () => {
     try {
@@ -53,6 +55,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
 
   return (
     <Paper
+      id={`codeBlock${title}`}
       elevation={0}
       sx={{
         border: '1px solid',
@@ -60,6 +63,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
         borderRadius: 2,
         overflow: 'hidden',
         backgroundColor: theme === 'dark' ? '#1a1a1a' : '#ffffff',
+        ...fullscreenStyles
       }}
     >
       {(title || description) && (
@@ -89,6 +93,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
                 {title}
               </Typography>
             )}
+
             {description && (
               <Typography
                 variant="body2"
@@ -121,20 +126,28 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
           overflow: 'auto',
         }}
       >
+        <IconButton
+          key={"scaling"}
+          size="small"
+          onClick={toggleFullscreen}
+          title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+          sx={{
+            position: 'absolute',
+            top: 12,
+            right: 12,
+            zIndex: 1,
+          }}
+        >
+          <Scaling size={20} />
+        </IconButton>
         {showCopy && (
           <IconButton
             onClick={handleCopy}
             sx={{
               position: 'absolute',
               top: 12,
-              right: 12,
+              right: 48,
               zIndex: 1,
-              backgroundColor: theme === 'dark' ? '#2a2a2a80' : '#ffffff80',
-              backdropFilter: 'blur(8px)',
-              color: theme === 'dark' ? '#ffffff' : '#18181b',
-              '&:hover': {
-                backgroundColor: theme === 'dark' ? '#2a2a2a' : '#f3f4f6',
-              },
             }}
             size="small"
           >
@@ -206,6 +219,7 @@ export const ComponentDoc: React.FC<ComponentDocProps> = ({
   const [activeTab, setActiveTab] = useState(0);
   const [copied, setCopied] = useState(false);
   const [copiedText, setCopiedText] = useState('');
+
 
   const handleCopy = async (text: string) => {
     try {

@@ -6,6 +6,7 @@ import {
   DialogActions,
   DialogProps,
 } from '@mui/material';
+import { X } from 'lucide-react';
 
 export interface ModalProps extends Omit<DialogProps, 'open'> {
   open?: boolean;
@@ -48,7 +49,7 @@ export const Modal: React.FC<ModalProps> = ({
       fullWidth={fullWidth}
       PaperProps={{
         sx: {
-          borderRadius: 1 ,
+          borderRadius: 1,
           boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
           ...sx,
         },
@@ -74,8 +75,8 @@ export const Modal: React.FC<ModalProps> = ({
               </div>
             )}
             {description && (
-              <div style={{ 
-                fontSize: '0.875rem', 
+              <div style={{
+                fontSize: '0.875rem',
                 color: 'var(--muted-foreground)',
                 marginTop: '4px'
               }}>
@@ -93,14 +94,17 @@ export const Modal: React.FC<ModalProps> = ({
                 padding: '4px',
                 borderRadius: '4px',
                 color: 'var(--muted-foreground)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
-              ×
+              <X size={20} />
             </button>
           )}
         </DialogTitle>
       )}
-      
+
       <DialogContent
         sx={{
           padding: title || showCloseButton ? '0 24px 24px' : '24px',
@@ -111,7 +115,7 @@ export const Modal: React.FC<ModalProps> = ({
       >
         {children}
       </DialogContent>
-      
+
       {footer && (
         <DialogActions
           sx={{
