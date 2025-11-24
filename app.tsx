@@ -15,11 +15,11 @@ import {
 } from '@mui/material';
 import { Sun, Moon } from 'lucide-react';
 import { createCustomTheme } from './src/theme/theme';
-import Button from './src/components/Button/Button';
-import { Card, CardHeader, CardContent, CardActions } from './src/components/Card/Card';
-import { Input } from './src/components/Input/Input';
-import { Modal } from './src/components/Modal/Modal';
-import { PaymentForm, type PaymentData } from './src/components/PaymentForm/PaymentForm';
+import Button from './src/components/ui/Button/Button';
+import { Card, CardHeader, CardContent, CardActions } from './src/components/ui/Card/Card';
+import { Input } from './src/components/ui/Input/Input';
+import { Modal } from './src/components/ui/Modal/Modal';
+import { PaymentForm, PaymentData } from './src/components/forms/PaymentForm/PaymentForm';
 
 function App() {
     const [darkMode, setDarkMode] = useState(false);
