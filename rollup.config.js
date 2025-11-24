@@ -63,12 +63,6 @@ export default [
       },
     },
   ]),
-  createConfig('src/index.ts', {
-    file: 'dist/index.js',
-    format: 'esm',
-    sourcemap: true,
-    exports: 'named',
-  }),
   createConfig('src/docs/index.ts', {
     file: 'dist/cascadeDocs.js',
     format: 'esm',

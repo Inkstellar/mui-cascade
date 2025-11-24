@@ -1,6 +1,6 @@
 import { createTheme, type ThemeOptions } from '@mui/material/styles';
 import { margin, positions } from '@mui/system';
-const colors = {
+export const colors = {
   primary: {
     main: '#00a499',      // Teal base color
     light: '#33b8ae',     // Lighter teal

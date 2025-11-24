@@ -41,8 +41,7 @@
     "@mui/material": "^5.14.20",
     "@mui/system": "^5.14.20",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-syntax-highlighter": "^15.5.13"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
@@ -51,7 +50,6 @@
     "@types/node": "^20.10.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
-    "@types/react-syntax-highlighter": "^15.5.13",
     "@vitejs/plugin-react": "^4.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -80,6 +78,9 @@
   },
   "homepage": "https://github.com/your-username/mui-cascade#readme",
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@monaco-editor/react": "^4.7.0",
     "@mui/icons-material": "^5.14.19",
     "@mui/material": "^5.14.20",
     "@mui/system": "^5.14.20",
@@ -88,6 +89,7 @@
     "fs-extra": "^11.3.2",
     "inquirer": "^8.2.6",
     "lucide-react": "^0.554.0",
+    "monaco-editor": "^0.55.1",
     "tslib": "^2.8.1"
   }
 }

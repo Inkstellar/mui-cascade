@@ -13,11 +13,11 @@ import {
   Tooltip,
 } from '@mui/material';
 import { ContentCopy } from '@mui/icons-material';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneLight, oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { Editor } from '@monaco-editor/react';
 import { Check, Terminal, Package, TestTube2, StopCircle, Scaling } from 'lucide-react';
 import { componentMetadata } from './registryMetadata';
 import { useFullscreen } from '../hooks/useFullscreen';
+import { colors } from '../theme/theme';
 
 export interface CodeBlockProps {
   code: string;
@@ -135,7 +135,8 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
             position: 'absolute',
             top: 12,
             right: 12,
-            zIndex: 1,
+            zIndex: 1000,
+            color: colors.grey[500],
           }}
         >
           <Scaling size={20} />
@@ -147,7 +148,8 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
               position: 'absolute',
               top: 12,
               right: 48,
-              zIndex: 1,
+              zIndex: 1000,
+              color: colors.grey[500],
             }}
             size="small"
           >
@@ -155,25 +157,29 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
           </IconButton>
         )}
 
-        <SyntaxHighlighter
-          language={language}
-          style={theme === 'dark' ? oneDark : oneLight}
-          showLineNumbers={showLineNumbers}
-          customStyle={{
-            margin: 0,
-            padding: '20px',
-            backgroundColor: 'transparent',
-            fontSize: '0.875rem',
-            lineHeight: 1.6,
+        <Editor
+          height={isFullscreen ? "96vh" : `${Math.min(Math.max((code.split('\n').length * 19) + 40, 100), 360)}px`}
+          language={language === 'jsx' ? 'javascript' : language}
+          value={code}
+          theme={'vs-dark'}
+          options={{
+            readOnly: true,
+            minimap: { enabled: false },
+            scrollBeyondLastLine: false,
+            wordWrap: 'on',
+            lineNumbers: showLineNumbers ? 'on' : 'off',
+            folding: false,
+            fontSize: 14,
+            padding: { top: 20, bottom: 20 },
+            scrollbar: {
+              vertical: 'auto',
+              horizontal: 'auto',
+            },
+            overviewRulerLanes: 0,
+            hideCursorInOverviewRuler: true,
+            overviewRulerBorder: false,
           }}
-          lineNumberStyle={{
-            color: theme === 'dark' ? '#6b7280' : '#9ca3af',
-            minWidth: '3em',
-            paddingRight: '1em',
-          }}
-        >
-          {code}
-        </SyntaxHighlighter>
+        />
       </Box>
     </Paper>
   );
