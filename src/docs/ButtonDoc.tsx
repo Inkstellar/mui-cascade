@@ -1,5 +1,5 @@
 import React from 'react';
-import ComponentDoc from './ComponentDoc';
+import ComponentDoc from './ComponentDoc/ComponentDoc';
 import { Button } from '../components/ui/Button/Button';
 import { Heart, ChevronRight, Download } from 'lucide-react';
 
@@ -196,15 +196,17 @@ export default function ButtonDoc() {
   const examples = [
     {
       title: 'Button Variants',
-      description: 'Different visual styles for different use cases',
+      description: 'Different visual styles for different use cases. Try editing the code in live mode!',
       component: <ButtonVariantsPreview />,
       code: variantsButtonCode,
+      enableLiveCode: true, // Enable live code playground
     },
     {
       title: 'Button Sizes',
       description: 'Small, medium, and large size options',
       component: <ButtonSizesPreview />,
       code: sizesButtonCode,
+      enableLiveCode: true, // Enable live code playground
     },
     {
       title: 'With Icons',

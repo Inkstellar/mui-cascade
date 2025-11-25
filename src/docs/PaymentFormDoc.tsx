@@ -1,5 +1,5 @@
 import React from 'react';
-import ComponentDoc from './ComponentDoc';
+import ComponentDoc from './ComponentDoc/ComponentDoc';
 import { PaymentForm, type PaymentData } from '../components/forms/PaymentForm/PaymentForm';
 import { Box, Typography, Alert } from '@mui/material';
 

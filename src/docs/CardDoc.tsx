@@ -1,5 +1,5 @@
 import React from 'react';
-import ComponentDoc from './ComponentDoc';
+import ComponentDoc from './ComponentDoc/ComponentDoc';
 import Card, { CardHeader, CardContent, CardActions } from '../components/ui/Card/Card';
 import Button from '../components/ui/Button/Button';
 import { Card as MuiCard } from '@mui/material';
