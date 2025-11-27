@@ -4,7 +4,6 @@ import {
   ButtonProps as MuiButtonProps,
   CircularProgress,
 } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 
 export interface ButtonProps extends Omit<MuiButtonProps, 'variant'> {
   variant?: 'contained' | 'outlined' | 'text' | 'elevated' | 'tonal';
@@ -14,70 +13,6 @@ export interface ButtonProps extends Omit<MuiButtonProps, 'variant'> {
   rightIcon?: React.ReactNode;
   to?: string;
 }
-
-const variantStyles = (theme: any) => ({
-  contained: {
-    backgroundColor: theme.palette.primary.main,
-    color: '#ffffff',
-    '&:hover': {
-      backgroundColor: theme.palette.primary.main,
-      opacity: 0.9,
-    },
-  },
-
-  elevated: {
-    backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.primary.main,
-    border: '1px solid',
-    borderColor: theme.palette.grey[300],
-    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
-    '&:hover': {
-      backgroundColor: theme.palette.secondary.main,
-      boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1)',
-    },
-  },
-  tonal: {
-    backgroundColor: `${theme.palette.primary.main}15`,
-    color: theme.palette.primary.main,
-    '&:hover': {
-      backgroundColor: `${theme.palette.primary.main}25`,
-    },
-  },
-  outlined: {
-    backgroundColor: 'transparent',
-    color: theme.palette.primary.main,
-    border: `1px solid ${theme.palette.grey[300]}`,
-    '&:hover': {
-      backgroundColor: theme.palette.secondary.main,
-      borderColor: theme.palette.grey[300],
-    },
-  },
-  text: {
-    backgroundColor: 'transparent',
-    color: theme.palette.primary.main,
-    '&:hover': {
-      backgroundColor: theme.palette.secondary.main,
-    },
-  },
-});
-
-const sizeStyles = {
-  small: {
-    padding: '6px 12px',
-    fontSize: '0.875rem',
-    minHeight: 32,
-  },
-  medium: {
-    padding: '8px 16px',
-    fontSize: '0.875rem',
-    minHeight: 40,
-  },
-  large: {
-    padding: '12px 24px',
-    fontSize: '1rem',
-    minHeight: 48,
-  },
-};
 
 export const Button: React.FC<ButtonProps> = ({
   variant = 'contained',
@@ -90,21 +25,17 @@ export const Button: React.FC<ButtonProps> = ({
   sx,
   ...props
 }) => {
-  const theme = useTheme();
   const isDisabled = disabled || loading;
+  
+  // Map custom variants to MUI variants
+  const muiVariant = variant === 'elevated' || variant === 'tonal' ? 'contained' : variant;
 
   return (
     <MuiButton
-      variant="contained"
+      variant={muiVariant as 'contained' | 'outlined' | 'text'}
+      size={size}
       disabled={isDisabled}
-      sx={{
-        ...variantStyles(theme)[variant],
-        ...sizeStyles[size],
-        position: 'relative',
-        overflow: 'hidden',
-        transition: 'all 0.2s ease-in-out',
-        ...sx,
-      }}
+      sx={sx}
       {...props}
     >
       {loading && (

@@ -1,5 +1,6 @@
 import { createTheme, type ThemeOptions } from '@mui/material/styles';
 import { margin, positions } from '@mui/system';
+import { componentStyles } from './componentStyles';
 export const colors = {
   primary: {
     main: '#00a499',      // Teal base color
@@ -103,91 +104,7 @@ export const themeOptions: ThemeOptions = {
     borderRadius: 8,
   },
   spacing: 8,
-  components: {
-    MuiInputLabel: {
-      styleOverrides: {
-        root: {
-          position: 'initial',
-          transform: 'none',
-          fontSize: '0.875rem',
-          marginBottom: '8px',
-        }
-      }
-    },
-    MuiTextField: {
-      styleOverrides: {
-        root: {
-          '& .MuiFormHelperText-root': {
-            marginLeft: 0,
-            marginRight: 0,
-          },
-        }
-      }
-    },
-    MuiFormControl: {
-      styleOverrides: {
-        root: {
-          '& .MuiFormHelperText-root': {
-            mx: 0,
-          },
-          '& fieldset': {
-            top: 0,
-          },
-          '& legend': {
-            display: 'none',
-          }
-        }
-      }
-    },
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          borderRadius: 8,
-          padding: '8px 16px',
-          fontSize: '0.875rem',
-          fontWeight: 500,
-          textTransform: 'none',
-          boxShadow: 'none',
-          '&:hover': {
-            boxShadow: 'none',
-          },
-        },
-        contained: {
-          boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
-          '&:hover': {
-            boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
-          },
-        },
-      },
-    },
-    MuiTypography: {
-      styleOverrides: {
-        h1: {
-
-        },
-      },
-    },
-    MuiCard: {
-      styleOverrides: {
-        root: {
-          borderRadius: 12,
-          border: '1px solid',
-          borderColor: '#e4e4e7',
-          boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
-        },
-      },
-    },
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          backgroundImage: 'none',
-        },
-        elevation1: {
-          boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
-        },
-      },
-    },
-  },
+  components: componentStyles
 };
 
 export const darkThemeOptions: ThemeOptions = {

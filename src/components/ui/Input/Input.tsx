@@ -3,7 +3,6 @@ import {
   TextField,
   InputAdornment,
   IconButton,
-  useTheme,
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
@@ -59,7 +58,6 @@ export const Input: React.FC<InputProps> = ({
   sx,
   ...props
 }) => {
-  const theme = useTheme();
   const [showPassword, setShowPassword] = React.useState(false);
   const isPassword = type === 'password';
   const inputType = isPassword ? (showPassword ? 'text' : 'password') : type;
@@ -110,47 +108,11 @@ export const Input: React.FC<InputProps> = ({
             )}
           </InputAdornment>
         ) : null,
-        sx: {
-          '& .MuiOutlinedInput-notchedOutline': {
-            borderColor: error ? theme.palette.error.main : theme.palette.divider,
-          },
-          '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: error ? theme.palette.error.main : theme.palette.primary.main,
-          },
-          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: error ? theme.palette.error.main : theme.palette.primary.main,
-            borderWidth: 2,
-          },
-          '&.Mui-error .MuiOutlinedInput-notchedOutline': {
-            borderColor: theme.palette.error.main,
-          },
-          ...sx,
-        },
       }}
       InputLabelProps={{
         shrink: placeholder ? true : undefined,
-        sx: {
-          color: error ? theme.palette.error.main : theme.palette.text.secondary,
-          '&.Mui-focused': {
-            color: error ? theme.palette.error.main : theme.palette.primary.main,
-          },
-        },
       }}
-      FormHelperTextProps={{
-        sx: {
-          mx: 0,
-          color: error ? theme.palette.error.main : theme.palette.text.secondary,
-          '&.Mui-error': {
-            color: theme.palette.error.main,
-          },
-        },
-      }}
-      sx={{
-        '& .MuiInputBase-root': {
-          borderRadius: 1,
-        },
-        ...sx,
-      }}
+      sx={sx}
       {...props}
     />
   );
